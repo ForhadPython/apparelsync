@@ -2,14 +2,16 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.home_banner_view, name='home_banner'),
-    # path('about/', views.about_view, name='about'),
-    # path('our-mission/', views.our_mission_view, name='our_mission'),
-    # path('our-service/', views.our_service_view, name='our_service'),
-    # path('our-value/', views.our_value_view, name='our_value'),
+    path('', views.home_page, name='home'),
+    path('knit/', views.knit_products, name='knit_products'),
+    path('woven/', views.woven_products, name='woven_products'),
+    path('sweater/', views.sweater_products, name='sweater_products'),
+    path('home-textile/', views.home_textile_products, name='home_textile_products'),
+    # path('mission/', views.mission_view, name='mission'),
+    # path('vision/', views.vision_view, name='vision'),
+    # path('services/', views.service_view, name='services'),
+    # path('values/', views.value_view, name='values'),
     # path('leadership/', views.leadership_view, name='leadership'),
-    # path('our-gallery/', views.our_gallery_view, name='our_gallery'),
-    # path('client-message/', views.client_message_view, name='client_message'),
+    # path('gallery/', views.gallery_view, name='gallery'),
     # path('contact/', views.contact_view, name='contact'),
-    # path('service-content/', views.service_content_view, name='service_content'),
 ]

@@ -71,20 +71,20 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mb-2 mb-lg-0" style="margin-left:auto;" id="navbarNav">
           <li class="nav-item">
-            <a class="nav-link" href="#top">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#outmission">Our Mission</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#services">Services</a>
-          </li>
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="/">About us</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="/">Our Mission</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="/">Services</a>-->
+<!--          </li>-->
 
           <!-- Product Dropdown -->
-          <li class="nav-item">
+         <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#submenu1" role="button" aria-expanded="false" aria-controls="submenu1">
                 Product
               </a>
@@ -98,9 +98,9 @@
               </div>
         </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="#contact">Contact</a>
-      </li>
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="#contact">Contact</a>-->
+<!--      </li>-->
       </ul>
 
 
@@ -110,7 +110,90 @@
 
 {% block content %}
 
-{% endblock %}
+<style>
+  .product-section {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+  }
+
+  .product-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .product-body {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .product-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    color: #333;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .product-img {
+      height: auto;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .product-img {
+      height: auto;
+    }
+  }
+</style>
+
+    <section class="product-section" style="margin-top: 100px;">
+      <div class="container">
+        <h2 class="text-center mb-5 fw-bold">Woven</h2>
+        <div class="row">
+          {% for product in products %}
+            <div class="col-md-6 col-lg-3 mb-4 d-flex">
+              <div class="product-card w-100" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:'1' }}00">
+                {% if product.image %}
+                  <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-img">
+                {% else %}
+                  <img src="{% static 'img/webp/placeholder.webp' %}" alt="No Image" class="product-img">
+                {% endif %}
+                <div class="product-body">
+                  <h5 class="product-title">{{ product.name }}</h5>
+                </div>
+              </div>
+            </div>
+          {% empty %}
+            <div class="col-12 text-center text-muted">
+              <p>No products available at the moment.</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    {% endblock %}
 
   <footer>
         <div class="container small border-top">

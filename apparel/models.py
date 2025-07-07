@@ -13,19 +13,15 @@ class HomeBanner(models.Model):
         return self.title or ""
 
 class AboutU(models.Model):
-    number = models.CharField(max_length=10, blank=True, null=True)
     title = models.CharField(max_length=200, blank=True, null=True)
     description = CKEditor5Field(config_name='default', blank=True, null=True)
-    link = models.CharField(max_length=200, blank=True, null=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title or ""
 
 class OurMission(models.Model):
-    image1 = models.ImageField(upload_to='OurMission', blank=True, null=True)
-    image2 = models.ImageField(upload_to='OurMission', blank=True, null=True)
-    image3 = models.ImageField(upload_to='OurMission', blank=True, null=True)
+    image = models.ImageField(upload_to='OurMission', blank=True, null=True)
     title = models.CharField(max_length=200, blank=True, null=True)
     description = CKEditor5Field(config_name='default', blank=True, null=True)
     link = models.CharField(max_length=200, blank=True, null=True)
@@ -35,9 +31,7 @@ class OurMission(models.Model):
         return self.title or ""
 
 class OurVision(models.Model):
-    image1 = models.ImageField(upload_to='OurMission', blank=True, null=True)
-    image2 = models.ImageField(upload_to='OurMission', blank=True, null=True)
-    image3 = models.ImageField(upload_to='OurMission', blank=True, null=True)
+    image = models.ImageField(upload_to='OurMission', blank=True, null=True)
     title = models.CharField(max_length=200, blank=True, null=True)
     description = CKEditor5Field(config_name='default', blank=True, null=True)
     link = models.CharField(max_length=200, blank=True, null=True)
@@ -47,9 +41,7 @@ class OurVision(models.Model):
         return self.title or ""
 
 class OurService(models.Model):
-    image1 = models.ImageField(upload_to='OurServices', blank=True, null=True)
-    image2 = models.ImageField(upload_to='OurServices', blank=True, null=True)
-    image3 = models.ImageField(upload_to='OurServices', blank=True, null=True)
+    image = models.ImageField(upload_to='OurServices', blank=True, null=True)
     title = models.CharField(max_length=200, blank=True, null=True)
     description = CKEditor5Field(config_name='default', blank=True, null=True)
     link = models.CharField(max_length=200, blank=True, null=True)
@@ -59,9 +51,7 @@ class OurService(models.Model):
         return self.title or ""
 
 class OurValue(models.Model):
-    image1 = models.ImageField(upload_to='OurValues', blank=True, null=True)
-    image2 = models.ImageField(upload_to='OurValues', blank=True, null=True)
-    image3 = models.ImageField(upload_to='OurValues', blank=True, null=True)
+    image = models.ImageField(upload_to='OurValues', blank=True, null=True)
     title = models.CharField(max_length=200)
     description = CKEditor5Field(config_name='default')
     link = models.CharField(max_length=200)
@@ -71,9 +61,7 @@ class OurValue(models.Model):
         return self.title or ""
 
 class Leadership(models.Model):
-    image1 = models.ImageField(upload_to='Leadership', blank=True, null=True)
-    image2 = models.ImageField(upload_to='Leadership', blank=True, null=True)
-    image3 = models.ImageField(upload_to='Leadership', blank=True, null=True)
+    image = models.ImageField(upload_to='Leadership', blank=True, null=True)
     title = models.CharField(max_length=200, blank=True, null=True)
     description = CKEditor5Field(config_name='default', blank=True, null=True)
     link = models.CharField(max_length=200, blank=True, null=True)
@@ -85,20 +73,11 @@ class Leadership(models.Model):
 class OurGallery(models.Model):
     image = models.ImageField(upload_to='OurGallery', blank=True, null=True)
     title = models.CharField(max_length=200, blank=True, null=True)
-    description = CKEditor5Field(config_name='default', blank=True, null=True)
     link = models.CharField(max_length=200, blank=True, null=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title or ""
-
-class ClientMessage(models.Model):
-    title = models.CharField(max_length=200, blank=True, null=True)
-    message = CKEditor5Field(config_name='default', blank=True, null=True)
-    is_active = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.name or ""
 
 class ContactU(models.Model):
     title = models.CharField(max_length=200, blank=True, null=True)
@@ -109,15 +88,6 @@ class ContactU(models.Model):
     def __str__(self):
         return self.title or ""
 
-class ServiceContent(models.Model):
-    image = models.ImageField(upload_to='ServiceContent', blank=True, null=True)
-    title = models.CharField(max_length=200, blank=True, null=True)
-    description = CKEditor5Field(config_name='default', blank=True, null=True)
-    link = models.CharField(max_length=200, blank=True, null=True)
-    is_active = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.title or ""
 
 
 class SiteInfo(models.Model):
@@ -143,3 +113,32 @@ class NavItem(models.Model):
         ordering = ['order']
 
 # Optional social links or footer links can be added similarly
+
+class ProductKnit(models.Model):
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='products/', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+class ProductWoven(models.Model):
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='products/', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+class ProductSweater(models.Model):
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='products/', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
+class ProductHomeTextile(models.Model):
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='products/', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
