@@ -5,6 +5,7 @@ from .models import (
     ContactU, SiteInfo, ProductKnit, ProductWoven, ProductSweater, ProductHomeTextile
 )
 
+
 def home_page(request):
     banners = HomeBanner.objects.filter(is_active=True)
     about = AboutU.objects.filter(is_active=True).first()
@@ -30,6 +31,7 @@ def home_page(request):
         'site_info': site_info,
     }
     return render(request, 'index.html', context)
+
 
 # def about_view(request):
 #     about = AboutU.objects.filter(is_active=True)
@@ -67,14 +69,22 @@ def knit_products(request):
     products = ProductKnit.objects.all()
     return render(request, 'knit.html', {'products': products})
 
+
 def woven_products(request):
     products = ProductWoven.objects.all()
     return render(request, 'woven.html', {'products': products})
+
 
 def sweater_products(request):
     products = ProductSweater.objects.all()
     return render(request, 'sweater.html', {'products': products})
 
+
 def home_textile_products(request):
     products = ProductHomeTextile.objects.all()
     return render(request, 'home_textile.html', {'products': products})
+
+
+def site_info_view(request):
+    site_info = SiteInfo.objects.first()
+    return render(request, 'base.html', {'site_info': site_info})

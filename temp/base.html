@@ -72,16 +72,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mb-2 mb-lg-0" style="margin-left:auto;" id="navbarNav">
           <li class="nav-item">
-            <a class="nav-link" href="#top">Home</a>
+            <a class="nav-link" href="/#top">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#about">About us</a>
+            <a class="nav-link" href="/#about">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#outmission">Our Mission</a>
+            <a class="nav-link" href="/#outmission">Our Mission</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#services">Services</a>
+            <a class="nav-link" href="/#services">Services</a>
           </li>
 
           <!-- Product Dropdown -->
@@ -98,7 +98,7 @@
         </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#contact">Contact</a>
+        <a class="nav-link" href="#/contact">Contact</a>
       </li>
       </ul>
 
@@ -116,31 +116,32 @@
           <div class="row py-5 d-flex justify-content-between">
 
       <div class="col-12 col-lg-6 col-xl-3 border-end p-5">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-layers-half" viewbox="0 0 16 16">
-          <path d="M8.235 1.559a.5.5 0 0 0-.47 0l-7.5 4a.5.5 0 0 0 0 .882L3.188 8 .264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l2.922-1.559a.5.5 0 0 0 0-.882l-7.5-4zM8 9.433 1.562 6 8 2.567 14.438 6 8 9.433z"/>
-        </svg>
+          <a class="navbar-brand pe-4 fs-4" href="/">
+            <img src="{% static 'img/logo.png'%}" width="120" height="35" alt="Logo">
+          </a>
         <address class="text-secondary mt-3">
-          <strong>Stride, Inc.</strong><br>
-          1355 Market St, Suite 900<br>
-          San Francisco, CA 94103<br>
+          <strong>{{ site_info.company_name }}</strong><br>
+          {{ site_info.address_line1 }}<br>
+          {{ site_info.city_state_zip }}<br>
           <abbr title="Phone">P:</abbr>
-          (123) 456-7890
+          {{ site_info.phone }}
         </address>
+
       </div>
       <div class="col-12 col-lg-6 col-xl-3 border-end p-5">
         <h3 class="h6 mb-3">Company</h3>
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link link-secondary ps-0" aria-current="page" href="#">Lorem ipsum</a>
+            <a class="nav-link link-secondary ps-0" aria-current="page" href="/#top">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link link-secondary ps-0" href="#">Dolor sitam est</a>
+            <a class="nav-link link-secondary ps-0" href="/#about">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link link-secondary ps-0" href="#">Sed odio cras</a>
+            <a class="nav-link link-secondary ps-0" href="/#outmission">Our Mission</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link link-secondary ps-0" href="#">Commodo tortor ac</a>
+            <a class="nav-link link-secondary ps-0" href="/#services">Services</a>
           </li>
         </ul>
       </div>
@@ -148,33 +149,43 @@
         <h3 class="h6 mb-3">Products</h3>
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link link-secondary ps-0" aria-current="page" href="#">Fusce dapibus est</a>
+            <a class="nav-link link-secondary ps-0" aria-current="page" href="/knit/">Knit</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link link-secondary ps-0" href="#">Donec sed dui</a>
+            <a class="nav-link link-secondary ps-0" href="/woven/">Woven</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link link-secondary ps-0" href="#">Tortor mauris</a>
+            <a class="nav-link link-secondary ps-0" href="/sweater/">Sweater</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link link-secondary ps-0" href="#">Ut fermentum massa</a>
+            <a class="nav-link link-secondary ps-0" href="/home-textile/">Home-Textile</a>
           </li>
+        </ul>
+      </div>
 
-          <li class="nav-item">
-            <a class="nav-link link-secondary ps-0" href="#">Magna mollis</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-12 col-lg-6 col-xl-3 p-5">
-        <h3 class="h6 mb-3">Subpages</h3>
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link link-secondary ps-0" aria-current="page" href="404.html">404 System Page</a>
-            <a class="nav-link link-secondary ps-0" aria-current="page" href="register.html">Register System Page</a>
-                  <a class="nav-link link-secondary ps-0" aria-current="page" href="content.html">Simple Text Content Page</a>
-          </li>
-        </ul>
-      </div>
+        <div class="col-12 col-lg-6 col-xl-3 p-5">
+          <h3 class="h6 mb-3">Social Media</h3>
+          <ul class="nav flex-column">
+
+            <li class="nav-item mb-2">
+              <a class="nav-link link-secondary ps-0 d-flex align-items-center" href="{{ site_info.facebook_link }}" target="_blank" rel="noopener">
+                <img src="{% static 'img/facevook-icon.webp' %}" alt="Facebook" width="35" height="35" class="me-2 rounded-circle">
+                Facebook
+              </a>
+            </li>
+
+            <li class="nav-item mb-2">
+              <a class="nav-link link-secondary ps-0 d-flex align-items-center" href="{{ site_info.instagram_link }}" target="_blank" rel="noopener">
+                <img src="{% static 'img/linkdin.png' %}" alt="LinkedIn" width="30" height="30" class="me-2 rounded-circle">
+                LinkedIn
+              </a>
+            </li>
+
+          </ul>
+        </div>
+
+
+
       </div>
       </div>
 
