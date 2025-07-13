@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import (
     HomeBanner, AboutU, OurMission, OurVision,
-    OurService, OurValue, Leadership, OurGallery,
+    OurService, OurValue, OurGallery,
     ContactU, SiteInfo, ProductKnit, ProductWoven, ProductSweater, ProductHomeTextile
 )
 
@@ -13,7 +13,6 @@ def home_page(request):
     vision = OurVision.objects.filter(is_active=True)
     services = OurService.objects.filter(is_active=True)
     values = OurValue.objects.filter(is_active=True)
-    leadership = Leadership.objects.filter(is_active=True)
     gallery = OurGallery.objects.filter(is_active=True)
     contact = ContactU.objects.filter(is_active=True).first()
     site_info = SiteInfo.objects.first()
@@ -25,7 +24,6 @@ def home_page(request):
         'vision': vision,
         'services': services,
         'values': values,
-        'leadership': leadership,
         'gallery': gallery,
         'contact': contact,
         'site_info': site_info,

@@ -5,7 +5,6 @@ from django_ckeditor_5.fields import CKEditor5Field
 class HomeBanner(models.Model):
     image = models.ImageField(upload_to='HomeBanner', blank=True, null=True)
     title = models.CharField(max_length=200, blank=True, null=True)
-    link = models.CharField(max_length=200, blank=True, null=True)
     description = CKEditor5Field(config_name='default', blank=True, null=True)
     banner_content = CKEditor5Field(config_name='default', blank=True, null=True)
     is_active = models.BooleanField(default=True)
@@ -27,7 +26,6 @@ class OurMission(models.Model):
     image = models.ImageField(upload_to='OurMission', blank=True, null=True)
     title = models.CharField(max_length=200, blank=True, null=True)
     description = CKEditor5Field(config_name='default', blank=True, null=True)
-    link = models.CharField(max_length=200, blank=True, null=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -38,7 +36,6 @@ class OurVision(models.Model):
     image = models.ImageField(upload_to='OurMission', blank=True, null=True)
     title = models.CharField(max_length=200, blank=True, null=True)
     description = CKEditor5Field(config_name='default', blank=True, null=True)
-    link = models.CharField(max_length=200, blank=True, null=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -49,7 +46,6 @@ class OurService(models.Model):
     image = models.ImageField(upload_to='OurServices', blank=True, null=True)
     title = models.CharField(max_length=200, blank=True, null=True)
     description = CKEditor5Field(config_name='default', blank=True, null=True)
-    link = models.CharField(max_length=200, blank=True, null=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -60,18 +56,6 @@ class OurValue(models.Model):
     image = models.ImageField(upload_to='OurValues', blank=True, null=True)
     title = models.CharField(max_length=200)
     description = CKEditor5Field(config_name='default')
-    link = models.CharField(max_length=200)
-    is_active = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.title or ""
-
-
-class Leadership(models.Model):
-    image = models.ImageField(upload_to='Leadership', blank=True, null=True)
-    title = models.CharField(max_length=200, blank=True, null=True)
-    description = CKEditor5Field(config_name='default', blank=True, null=True)
-    link = models.CharField(max_length=200, blank=True, null=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -91,7 +75,6 @@ class OurGallery(models.Model):
 class ContactU(models.Model):
     title = models.CharField(max_length=200, blank=True, null=True)
     message = CKEditor5Field(config_name='default', blank=True, null=True)
-    link = models.CharField(max_length=200, blank=True, null=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
