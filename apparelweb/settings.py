@@ -171,7 +171,7 @@ JAZZMIN_UI_TWEAKS = {
 JAZZMIN_SETTINGS = {
     "site_title": "ApparelSync",
     "site_header": "Admin",
-    "site_logo": "images/logo.png",
+    # "site_logo": "images/logo.png",
     "welcome_sign": "Welcome to ApparelSync",
     "copyright": "ApparelSync",
     "search_model": "account.User",
@@ -231,30 +231,78 @@ CKEDITOR_5_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
 
 CKEDITOR_5_CONFIGS = {
     'default': {
-        'toolbar': [
-            'heading', '|',
-            'bold', 'italic', 'underline', 'link', '|',
-            'bulletedList', 'numberedList', 'blockQuote', '|',
-            'insertTable', 'imageUpload', 'mediaEmbed', '|',
-            'undo', 'redo'
-        ],
-        'height': 400,
-        'width': '100%',
+        'toolbar': {
+            'items': [
+                'heading', '|',
+                'bold', 'italic', 'underline', 'strikethrough', 'highlight', '|',
+                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|',
+                'link', 'insertImage', 'imageUpload', 'mediaEmbed', '|',
+                'bulletedList', 'numberedList', 'todoList', '|',
+                'outdent', 'indent', '|',
+                'alignment', '|',
+                'blockQuote', 'code', 'codeBlock', '|',
+                'subscript', 'superscript', '|',
+                'insertTable', '|',
+                'undo', 'redo', '|',
+                'removeFormat', 'sourceEditing'
+            ],
+            'shouldNotGroupWhenFull': True
+        },
         'image': {
             'toolbar': [
-                'imageTextAlternative', '|',
-                'imageStyle:alignLeft',
-                'imageStyle:full',
-                'imageStyle:alignRight'
+                'imageTextAlternative',
+                '|',
+                'imageStyle:inline',
+                'imageStyle:block',
+                'imageStyle:side',
+                'linkImage'
             ],
             'styles': [
                 'full',
+                'side',
                 'alignLeft',
-                'alignRight'
+                'alignRight',
+                'alignCenter',
             ]
         },
         'table': {
-            'contentToolbar': ['tableColumn', 'tableRow', 'mergeTableCells']
+            'contentToolbar': [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells',
+                'tableProperties',
+                'tableCellProperties'
+            ]
         },
+        'heading': {
+            'options': [
+                {'model': 'paragraph', 'title': 'Paragraph', 'class': 'ck-heading_paragraph'},
+                {'model': 'heading1', 'view': 'h1', 'title': 'Heading 1', 'class': 'ck-heading_heading1'},
+                {'model': 'heading2', 'view': 'h2', 'title': 'Heading 2', 'class': 'ck-heading_heading2'},
+                {'model': 'heading3', 'view': 'h3', 'title': 'Heading 3', 'class': 'ck-heading_heading3'},
+                {'model': 'heading4', 'view': 'h4', 'title': 'Heading 4', 'class': 'ck-heading_heading4'},
+                {'model': 'heading5', 'view': 'h5', 'title': 'Heading 5', 'class': 'ck-heading_heading5'},
+                {'model': 'heading6', 'view': 'h6', 'title': 'Heading 6', 'class': 'ck-heading_heading6'},
+            ]
+        },
+        'list': {
+            'properties': {
+                'styles': True,
+                'startIndex': True,
+                'reversed': True,
+            }
+        },
+        'htmlSupport': {
+            'allow': [
+                {
+                    'name': '/.*/',
+                    'attributes': True,
+                    'classes': True,
+                    'styles': True
+                }
+            ]
+        },
+        'removePlugins': [],
+        'language': 'en'
     }
 }

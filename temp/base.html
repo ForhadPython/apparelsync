@@ -54,6 +54,37 @@
         url('./fonts/inter-v12-latin-700.woff') format('woff');
       /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
+
+    /* Hover dropdown open */
+      .navbar .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0; /* remove default margin */
+      }
+
+      .dropdown-menu {
+        transition: all 0.3s ease;
+      }
+
+      .navbar .dropdown-menu {
+        border: none;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        margin-top: 0;
+      }
+
+      /* Optional: keep dropdown open height while hovering */
+      .navbar .dropdown:hover {
+        height: auto;
+      }
+
+      /* Top menu link + dropdown menu link একই রকম ফন্ট করবে */
+    .navbar .nav-link,
+    .navbar .dropdown-item {
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+    }
+
   </style>
 
 </head>
@@ -176,7 +207,7 @@
             </li>
 
             <li class="nav-item mb-2">
-              <a class="nav-link link-secondary ps-0 d-flex align-items-center" href="{{ site_info.instagram_link }}" target="_blank" rel="noopener">
+              <a class="nav-link link-secondary ps-0 d-flex align-items-center" href="{{ site_info.linkedin_link }}" target="_blank" rel="noopener">
                 <img src="{% static 'img/linkdin.png' %}" alt="LinkedIn" width="30" height="30" class="me-2 rounded-circle">
                 LinkedIn
               </a>

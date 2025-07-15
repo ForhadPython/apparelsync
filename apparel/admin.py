@@ -45,9 +45,9 @@ class OurValueAdmin(admin.ModelAdmin):
 
 @admin.register(OurGallery)
 class OurGalleryAdmin(admin.ModelAdmin):
-    list_display = ('title', 'link', 'is_active')
-    list_filter = ('is_active',)
-    fields = ('image', 'title', 'link', 'is_active')
+    list_display = ['id', 'is_active']
+    list_filter = ['is_active']
+    search_fields = ['id']
 
 
 @admin.register(ContactU)
@@ -59,7 +59,7 @@ class ContactUAdmin(admin.ModelAdmin):
 
 @admin.register(SiteInfo)
 class SiteInfoAdmin(admin.ModelAdmin):
-    list_display = ('company_name', 'phone', 'facebook_link', 'instagram_link')
+    list_display = ('company_name', 'phone', 'facebook_link', 'linkedin_link')
     search_fields = ('company_name', 'address_line1', 'city_state_zip')
     list_filter = ('company_name',)
     fieldsets = (
@@ -67,7 +67,7 @@ class SiteInfoAdmin(admin.ModelAdmin):
             'fields': ('company_name', 'address_line1', 'city_state_zip', 'phone')
         }),
         ('Social Media', {
-            'fields': ('facebook_link', 'instagram_link')
+            'fields': ('facebook_link', 'linkedin_link')
         }),
         ('Other', {
             'fields': ('favicon',)

@@ -73,7 +73,7 @@
                   <img src="{% static 'img/webp/placeholder.webp' %}" alt="No Image" class="product-img">
                 {% endif %}
                 <div class="product-body">
-                  <h5 class="product-title">{{ product.name }}</h5>
+                  <h5 class="product-title">{{ product.name|default_if_none:"" }}</h5>
                 </div>
               </div>
             </div>

@@ -63,13 +63,11 @@ class OurValue(models.Model):
 
 
 class OurGallery(models.Model):
-    image = models.ImageField(upload_to='OurGallery', blank=True, null=True)
-    title = models.CharField(max_length=200, blank=True, null=True)
-    link = models.CharField(max_length=200, blank=True, null=True)
+    image_1 = models.ImageField(upload_to='OurGallery', blank=True, null=True)
+    image_2 = models.ImageField(upload_to='OurGallery', blank=True, null=True)
+    image_3 = models.ImageField(upload_to='OurGallery', blank=True, null=True)
+    image_4 = models.ImageField(upload_to='OurGallery', blank=True, null=True)
     is_active = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.title or ""
 
 
 class ContactU(models.Model):
@@ -84,10 +82,11 @@ class ContactU(models.Model):
 class SiteInfo(models.Model):
     company_name = models.CharField(max_length=200, blank=True, null=True)
     address_line1 = models.CharField(max_length=200, blank=True, null=True)
-    city_state_zip = models.CharField(max_length=200, blank=True, null=True)  # could be city, state, zip or full address
+    city_state_zip = models.CharField(max_length=200, blank=True,
+                                      null=True)  # could be city, state, zip or full address
     facebook_link = models.URLField(max_length=400, blank=True, null=True)  # optional for social link
-    instagram_link = models.URLField(max_length=400, blank=True, null=True)  # optional for social link
-    phone = models.CharField(max_length=50, blank=True, null=True)  # optional for phone number
+    linkedin_link = models.URLField(max_length=400, blank=True, null=True)  # optional for social link
+    phone = models.CharField(max_length=50, blank=True, null=True)
     favicon = models.ImageField(upload_to='favicons/', blank=True, null=True)  # optional for favicon image
 
     def __str__(self):
@@ -109,32 +108,32 @@ class NavItem(models.Model):
 # Optional social links or footer links can be added similarly
 
 class ProductKnit(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, blank=True, null=True)
     image = models.ImageField(upload_to='products/', blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.name if self.name else "Unnamed ProductKnit"
 
 
 class ProductWoven(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, blank=True, null=True)
     image = models.ImageField(upload_to='products/', blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.name if self.name else "Unnamed ProductWoven"
 
 
 class ProductSweater(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, blank=True, null=True)
     image = models.ImageField(upload_to='products/', blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.name if self.name else "Unnamed ProductSweater"
 
 
 class ProductHomeTextile(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, blank=True, null=True)
     image = models.ImageField(upload_to='products/', blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.name if self.name else "Unnamed ProductHomeTextile"
